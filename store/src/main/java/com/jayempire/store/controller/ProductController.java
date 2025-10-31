@@ -2,13 +2,16 @@ package com.jayempire.store.controller;
 
 import com.jayempire.store.model.ProductModel;
 import com.jayempire.store.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class ProductController {
-    ProductService service = new ProductService();
+
+    @Autowired
+   private ProductService service;
 
     // Fetch all product
     @GetMapping("/products")
