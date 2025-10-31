@@ -40,4 +40,16 @@ public class ProductService {
             System.out.println("Product not found");
         }
     }
+
+    public void removeProduct(ProductModel product){
+        ProductModel prodToRemove = products.stream().
+                        filter(p-> p.getProductId() == product.getProductId())
+                         .findFirst().orElse(null);
+        if(prodToRemove != null){
+            System.out.println(product);
+            products.remove(prodToRemove);
+        }else{
+            System.out.println("Product not found");
+        }
+    }
 }

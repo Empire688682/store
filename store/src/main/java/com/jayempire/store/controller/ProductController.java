@@ -23,6 +23,12 @@ public class ProductController {
         service.addProduct(product);
     }
 
+    //Remove product
+    @DeleteMapping("/products")
+    public void removeProduct( @RequestBody ProductModel product){
+        service.removeProduct(product);
+    }
+
     // Fetch all product by id
     @GetMapping("/products/{productId}")
     public ProductModel fetchProductById( @PathVariable int productId){
