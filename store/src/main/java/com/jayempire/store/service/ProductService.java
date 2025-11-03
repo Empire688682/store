@@ -31,32 +31,14 @@ public class ProductService {
     }
 
     public ProductModel getProductById(int productId){
-        return products.stream().
-                filter(p -> p.getProductId() == productId).findFirst().orElse(new ProductModel(0,0,"No product found"));
+        return repo.findById(productId).orElse(new ProductModel());
     }
 
     public void updateProduct(ProductModel product){
-        boolean productFound = false;
-        for (int i = 0; i < products.size(); i++){
-            if(products.get(i).getProductId() == product.getProductId()){
-                products.set(i, product);
-                productFound = true;
-            }
-        }
-        if(!productFound){
-            System.out.println("Product not found");
-        }
+        repo.save(product);
     }
 
     public void removeProduct(ProductModel product){
-        ProductModel prodToRemove = products.stream().
-                        filter(p-> p.getProductId() == product.getProductId())
-                         .findFirst().orElse(null);
-        if(prodToRemove != null){
-            System.out.println(product);
-            products.remove(prodToRemove);
-        }else{
-            System.out.println("Product not found");
-        }
+        repo.delete(product);
     }
 }
