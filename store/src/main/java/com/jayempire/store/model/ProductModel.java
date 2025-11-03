@@ -1,6 +1,13 @@
 package com.jayempire.store.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
 public class ProductModel {
+    @Id
     private int productId;
     private int productPrice;
     private String productName;

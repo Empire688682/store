@@ -2,14 +2,12 @@ package com.jayempire.store.service;
 
 import com.jayempire.store.Repo.ProductRepository;
 import com.jayempire.store.model.ProductModel;
-import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-@Entity
 @Service
 public class ProductService {
 
